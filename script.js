@@ -7,9 +7,14 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstati
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
-//Paste your Firebase configuration
-};
+  const firebaseConfig = {
+    apiKey: "AIzaSyAkQP8N91sriP0CMd3rIT3cYyN6Am8oW0o",
+    authDomain: "fir-cloud-store-sept.firebaseapp.com",
+    projectId: "fir-cloud-store-sept",
+    storageBucket: "fir-cloud-store-sept.appspot.com",
+    messagingSenderId: "569840953919",
+    appId: "1:569840953919:web:169873c32fe5a72f9d268a"
+  };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -21,7 +26,7 @@ const db = getFirestore(app);
 //Initialize cloudstore
 const storage = getStorage();
 
-
+//Selectores
 const signUpForm = document.getElementById('signup-form');
 const loginForm = document.getElementById('login-form');
 const logout = document.getElementById('logout');
@@ -91,6 +96,8 @@ loginForm.addEventListener('submit', async (e) => {
       document.getElementById('msgerr').innerHTML='Invalid user or password';
       const errorCode = error.code;
       const errorMessage = error.message;
+      console.log('Código del error: ' + errorCode);
+      console.log('Mensaje del error: ' + errorMessage);
     });
 })
 
